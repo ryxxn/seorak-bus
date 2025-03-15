@@ -16,9 +16,17 @@ const getFullDataFromDayKind = (dayKind) => {
   }
 }
 
+const initializeDayKind = () => {
+  const now = new Date();
+  const day = now.getDay();
+  if (day === 0) return DAY_KIND.일요일;
+  if (day === 6) return DAY_KIND.토요일공휴일;
+  return DAY_KIND.평일;
+}
+
 const busListStore = (set) => ({
   fullData: 평일시간,
-  dayKind: DAY_KIND.평일,
+  dayKind: initializeDayKind(),
   is운행종료: false,
   setDayKind: (dayKind) => {
     const fullData = getFullDataFromDayKind(dayKind);
