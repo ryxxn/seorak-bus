@@ -25,7 +25,7 @@ const initializeDayKind = () => {
 }
 
 const busListStore = (set) => ({
-  fullData: 평일시간,
+  fullData: getFullDataFromDayKind(initializeDayKind()),
   dayKind: initializeDayKind(),
   is운행종료: false,
   setDayKind: (dayKind) => {
